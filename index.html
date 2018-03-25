@@ -18,19 +18,20 @@
         1. Build out html skeleton COMPLETE
         2. CSS/Bootstrap  Bootstrap COMPLETE CSS: In Progress
         Javascript:
-        3.
-        4.
-        5.
-        6.
-        7.
-        8.
-        9.
+        3. h2 Array of phrases that pop up in response to correct answer for hangman
+        4. Array of images that pop up in response to correct answer for hangman
+        5. Count and display amount of words guessed correctly
+        6. Populate new word for the game and hide it from user
+        7. Display correct amount of spaces for the next word in the array. Display correct letters in spaces for each word as correct letters are guessed.
+        8. Countdown number of guesses made remaining from set number of guesses before game over. Don't count down on guesses for the same letter already made in the round. 
+        9. Display letters already guessed in the current round. Don't display guesses already made more than once.
 
      -->
     <header>
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4">HANGMAN</h1>
+                <!-- incorporate some sort of css animation to make game feel more interactive and snazzy -->
                 <p class="lead">Let's Play Hangman!</p>
             </div>
         </div>
@@ -38,36 +39,42 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                 <!-- h2 Array of phrases that pop up in response to correct answer for hangman -->
                 <h2>Something related to the answer</h2>
             </div>
             <div class="col-md-6">
-                <div class="text-center">
-                    <img src="http://via.placeholder.com/200x200" class="rounded" alt="...">
-                </div>
+                <!-- Array of images that pop up in response to correct answer for hangman -->
+                    <img src="http://via.placeholder.com/200x200" class="img-fluid" alt="Responsive image">
+                    
             </div>
             <div class="col-md-6">
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                     <div class="card-header">Press keys to start!</div>
                 </div>
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Wins:</div>
+                       <!--Count and display amount of words guessed correctly here  -->
+                    <div class="card-header">Wins:</div>
                         <div class="card-body">
                                 <p class="card-text">#</p>
                             </div>
                     </div>
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                    <!-- Populate new word for the game and hide it from user -->
                     <div class="card-header">Current Word:</div>
                     <div class="card-body">
+                    <!-- Display correct amount of spaces for the next word in the array. Display correct letters in spaces for each word as correct letters are guessed.-->
                         <p class="card-text">_ _ _ _ _ _</p>
                     </div>
                 </div>
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Number of Guesses:</div>
+                    <!-- Countdown number of guesses made remaining from set number of guesses before game over. Don't count down on guesses for the same letter already made in the round.  -->
+                        <div class="card-header">Number of Guesses Remaining:</div>
                         <div class="card-body">
                                 <p class="card-text">#</p>
                             </div>
                     </div>
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                    <!-- Display letters already guessed in the current round. Don't display guesses already made. -->
                     <div class="card-header">Letters already guessed:</div>
                     <div class="card-body">
                         <p class="card-text">_ _ _ _ _ _</p>
