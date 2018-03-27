@@ -6,14 +6,33 @@
 //         7. Display correct amount of spaces for the next word in the array. Display correct letters in spaces for each word as correct letters are guessed.
 //         8. Countdown number of guesses made remaining from set number of guesses before game over. Don't count down on guesses for the same letter already made in the round. 
 //         9. Display letters already guessed in the current round. Don't display guesses already made more than once.
-var hangmanGame={
+
+
+//If using the rps game, make sure you change the code so that each key press isn't counted as a new game. 
+
+var hangman={
     word:[],
-    userInput:[],
-    winningPhrases:[],
+    phrases:[],
     winningPics:[],
     winningMusic:[],
-    countdownGuesses:[],
-    lettersGuessed:[]
+
+    userInput: function(){
+    var userGuess = document.getElementById('userInput').toLowerCase.value;
+    console.log(userInput);
+    
+    },
+
+    winningPhrases:function(){
+        
+    }, 
+
+    countdownGuesses:function(){
+        
+    },  
+    
+    lettersGuessed:function(){
+        
+    },  
 
 
 }
