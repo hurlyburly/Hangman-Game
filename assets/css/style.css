@@ -1,0 +1,7 @@
+.container{
+    background-image: url(../images/background.jpg);
+}
+h1,h2,.lead{
+    background-color:#35555f;
+    color:#fff;
+}

@@ -11,14 +11,18 @@
 //If using the rps game, make sure you change the code so that each key press isn't counted as a new game. 
 
 var hangman={
+    
     word:[],
+    //phrases id in html h2 "phrases"
     phrases:[],
-    winningPics:[],
+    //winningPic id in html div class col-md-8 id-"winningPic"
+    winningPic:[],
+    //winningMusic id in html div class col-md-8 id-"winningMusic"
     winningMusic:[],
-
     userInput: function(){
-    var userGuess = document.getElementById('userInput').toLowerCase.value;
-    console.log(userInput);
+    var userGuess = document.getElementById('userInput');
+    
+    console.log(userIput);
     
     },
 

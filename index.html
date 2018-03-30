@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+ 
     <title>Document</title>
 </head>
 
@@ -43,16 +44,16 @@
         <div class="row">
             <div class="col-md-12">
                  <!-- h2 Array of phrases that pop up in response to correct answer for hangman -->
-                <h2>Something related to the answer</h2>
+                <h2 id="phrases">Something related to the answer</h2>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8" id="winningPic winningMusic">
                 <!-- Array of images that pop up in response to correct answer for hangman -->
                     <img src="http://via.placeholder.com/200x200" class="img-fluid" alt="Responsive image">
                     
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                    <div class="card-header">Press keys to start!</div>
+                    <div class="card-header" id="userInput">Press keys to start!</div>
                 </div>
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                        <!--Count and display amount of words guessed correctly here  -->
@@ -85,14 +86,15 @@
                 </div>
             </div>
         </div>
-    </div>
+     <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by Isidoro151 - Freepik.com</a></div>  
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/game.js"></script>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 
 </html>
