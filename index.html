@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -40,7 +39,7 @@
             </div>
         </div>
     </header>
-    <div class="container">
+    <div class="container mainbg" id="start">
         <div class="row">
             <div class="col-md-12">
                  <!-- h2 Array of phrases that pop up in response to correct answer for hangman -->
@@ -53,7 +52,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                    <div class="card-header" id="userInput">Press keys to start!</div>
+                    <div class="card-header" id="userInput">Press any key to start!</div>
                 </div>
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                        <!--Count and display amount of words guessed correctly here  -->
@@ -65,7 +64,7 @@
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                     <!-- Populate new word for the game and hide it from user -->
                     <div class="card-header">Current Word:</div>
-                    <div class="card-body">
+                    <div class="card-body" id="word">
                     <!-- Display correct amount of spaces for the next word in the array. Display correct letters in spaces for each word as correct letters are guessed.-->
                         <p class="card-text">_ _ _ _ _ _</p>
                     </div>
@@ -74,7 +73,7 @@
                     <!-- Countdown number of guesses made remaining from set number of guesses before game over. Don't count down on guesses for the same letter already made in the round.  -->
                         <div class="card-header">Number of Guesses Remaining:</div>
                         <div class="card-body">
-                                <p class="card-text">#</p>
+                                <p class="card-text" id="guessesRemaining">#</p>
                             </div>
                     </div>
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
