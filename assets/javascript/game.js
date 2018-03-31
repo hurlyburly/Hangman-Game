@@ -9,10 +9,8 @@
 
 //If using the rps game, make sure you change the code so that each key press isn't counted as a new game.
 
-
 var guessesRemaining = 9;
-var wins=0;
-var lettersGuessed;
+var wins = 0;
 var words = [
   "Corgi",
   "Terrier",
@@ -40,43 +38,45 @@ var images = [
   "assets/images/beagle.jpeg",
   "assets/images/labrador.jpeg"
 ];
+var guessWord;
+var lettersGuessed = [];
+var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
-var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
- 
 var userStart = false;
 //start game by pressing any key
 
 document.onkeyup = function(event) {
   if (userStart) {
-      function checkUserInput(){
-      var userInput;
+    function checkUserInput() {
+      var userInput = event.key;
+      var checkValidity = alphabet.indexOf(userInput);
+      lettersGuessed.push(userInput);
+      console.log(lettersGuessed);
+      if (checkValidity == -1) {
+        document.querySelector("#userInput").innerHTML =
+          "Please guess a letter.";
+      } else {
+        var checkLetter = guessWord.indexOf(userInput);
+        guessesRemaining--;
+        document.querySelector("#guessesRemaining").innerHTML=guessesRemaining;
 
+        if (checkLetter>-1) {
+        
+
+        
+            
+        }
+        else{
+            document.querySelector("#userInput").innerHTML="Sorry, guess again!";
+        }
       }
-      userInput.onkeyup(alphabet, function(){checkUserInput();}
-
-      
-      
-
-
-      
-
+    }
+    checkUserInput();
   } else {
     userStart = true;
-    //testing if this works properly: remove this console.log when submitting final version of homework
-    console.log("you pressed " + event.key);
-
-    var html = "You've started the game!";
-    document.querySelector("#userInput").innerHTML = html; 
-    var words = [
-      "Corgi",
-      "Terrier",
-      "Pug",
-      "Dalmatian",
-      "Dachshund",
-      "Beagle",
-      "Labrador"
-    ];
-    var guessWord = words[Math.floor(Math.random() * words.length)];
+    document.querySelector("#userInput").innerHTML = "You've started the game!";
+    guessWord = words[Math.floor(Math.random() * words.length)];
+    console.log(guessWord);
     var blank = "";
     for (var i = 0; i < guessWord.length; i++) {
       blank = blank + "_ ";
@@ -84,12 +84,11 @@ document.onkeyup = function(event) {
     document.querySelector("#word").innerHTML = blank;
   }
 
-  if (guessesRemaining<1){
-      document.querySelector("#guessesRemaining").innerHTML=("Game Over");
-  }
-    else {
-        document.querySelector("#guessesRemaining").innerHTML=guessesRemaining;
-    
+  //   if (guessesRemaining<1){
+  //       document.querySelector("#guessesRemaining").innerHTML=("Game Over");
+  //   }
+  //     else {
+  //         document.querySelector("#guessesRemaining").innerHTML=guessesRemaining;
 
-  }
+  //   }
 };
