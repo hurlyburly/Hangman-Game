@@ -12,13 +12,13 @@
 var guessesRemaining = 9;
 var wins = 0;
 var words = [
-  "Corgi",
-  "Terrier",
-  "Pug",
-  "Dalmatian",
-  "Dachshund",
-  "Beagle",
-  "Labrador"
+  "corgi",
+  "terrier",
+  "pug",
+  "dalmatian",
+  "dachshund",
+  "beagle",
+  "labrador"
 ];
 var phrases = [
   "Corgis are Cute!",
@@ -50,7 +50,7 @@ document.onkeyup = function(event) {
     function checkUserInput() {
       var userInput = event.key;
       var checkValidity = alphabet.indexOf(userInput);
-      lettersGuessed.push(userInput);
+      lettersGuessed.push(" "+ userInput+" ");
       console.log(lettersGuessed);
       if (checkValidity == -1) {
         document.querySelector("#userInput").innerHTML =
@@ -59,7 +59,8 @@ document.onkeyup = function(event) {
         var checkLetter = guessWord.indexOf(userInput);
         guessesRemaining--;
         document.querySelector("#guessesRemaining").innerHTML=guessesRemaining;
-
+        lettersGuessed.toString();
+        document.querySelector("#lettersGuessed").innerHTML=lettersGuessed;
         if (checkLetter>-1) {
         
 
