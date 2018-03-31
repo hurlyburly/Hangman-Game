@@ -9,8 +9,10 @@
 
 //If using the rps game, make sure you change the code so that each key press isn't counted as a new game.
 
-var wins = 0;
+
 var guessesRemaining = 9;
+var wins=0;
+var lettersGuessed;
 var words = [
   "Corgi",
   "Terrier",
@@ -46,6 +48,25 @@ var userStart = false;
 
 document.onkeyup = function(event) {
   if (userStart) {
+      function checkUserInput(){
+      var userInput;
+
+      }
+      userInput.onkeyup(alphabet, function(){checkUserInput();}
+
+      
+      
+
+
+      
+
+  } else {
+    userStart = true;
+    //testing if this works properly: remove this console.log when submitting final version of homework
+    console.log("you pressed " + event.key);
+
+    var html = "You've started the game!";
+    document.querySelector("#userInput").innerHTML = html; 
     var words = [
       "Corgi",
       "Terrier",
@@ -61,44 +82,14 @@ document.onkeyup = function(event) {
       blank = blank + "_ ";
     }
     document.querySelector("#word").innerHTML = blank;
-  
+  }
 
-  } else {
-    userStart = true;
-    //testing if this works properly: remove this console.log when submitting final version of homework
-    console.log("you pressed " + event.key);
+  if (guessesRemaining<1){
+      document.querySelector("#guessesRemaining").innerHTML=("Game Over");
+  }
+    else {
+        document.querySelector("#guessesRemaining").innerHTML=guessesRemaining;
+    
 
-    var html = "You've started the game!";
-    document.querySelector("#userInput").innerHTML = html;
   }
 };
-
-// var hangman={
-
-//     start:,
-//     word:[],
-//     //phrases id in html h2 "phrases"
-//     phrases:[],
-//     //winningPic id in html div class col-md-8 id-"winningPic"
-//     winningPic:[],
-//     //winningMusic id in html div class col-md-8 id-"winningMusic"
-//     winningMusic:[],
-//     userStart:function(){
-
-//     },
-
-//     winningPhrases:function(){
-
-//     },
-
-//     countdownGuesses:function(){
-
-//     },
-
-//     lettersGuessed:function(){
-
-//     },
-
-// }
-
-// console.log(userGuess);
