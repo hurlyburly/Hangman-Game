@@ -76,7 +76,6 @@ function inputGuess() {
 }
 function wrongGuess() {
   document.querySelector("#userInput").innerHTML = "Sorry, guess again!";
-  guessesRemaining--;
   document.querySelector("#guessesRemaining").innerHTML = guessesRemaining;
 }
 
@@ -95,9 +94,9 @@ function winGame() {
   wins++;
   document.querySelector("#userInput").innerHTML = "You Win!";
   document.querySelector("#wins").innerHTML = wins;
-  document.getElementById("#barking").play();
-  document.querySelector("#phrases").innerHTML = guessWord.phrases;
-  document.querySelector("#winningImage").innerHTML = guessWord.images;
+//   document.getElementById("#barking").play();
+//   document.querySelector("#phrases").innerHTML = guessWord.phrases;
+//   document.querySelector("#winningImage").innerHTML = guessWord.images;
 }
 function endGame() {
   document.querySelector("#userInput").innerHTML =
@@ -125,27 +124,26 @@ document.onkeyup = function(event) {
           resetGame();
         } else {
           if (checkRepeat == -1) {
+              inputGuess(); 
             for (var i = 0; i < guessWord.word.length; i++) {
               if (guessWord.word[i] === userInput) {
                 spaces[i] = userInput;
                 spacesRemaining--;
                 document.querySelector("#word").innerHTML = spaces.join(" ");
                 document.querySelector("#userInput").innerHTML =
-                  "Great! That letter is in the word!";
-                inputGuess();
-              } else if (spaces.length + spacesRemaining < 1) {
+                  "Great! That letter is in the word!";   
+              } 
+            } if (spaces.indexOf("_")==-1) {
                 winGame();
                 resetGame();
-              } else {
-                document.querySelector("#userInput").innerHTML =
-                  "You have already guessed this letter. Please try another.";
-              }
-            }
+              } 
+          }else {
+            document.querySelector("#userInput").innerHTML =
+              "You have already guessed this letter. Please try another.";
           }
-          if (checkLetter > -1) {
+          if (checkLetter == -1) {
             wrongGuess();
-          } else {
-          }
+          } 
         }
       }
     }
