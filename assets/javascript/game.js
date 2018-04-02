@@ -8,8 +8,6 @@
 //         8. COMPLETE Display letters already guessed in the current round.
 //         9. Don't display guesses already made more than once.
 //         10. COMPLETE Reset the game once guesses remaining drops to zero.
-var guessesRemaining = 9;
-var wins = 0;
 var words = [
   {
     word: "corgi",
@@ -48,82 +46,63 @@ var words = [
   }
 ];
 var guessWord;
+var spaces = [];
+var spacesRemaining=spaces.length;
+var guessesRemaining = 9;
 var userInput;
 var userStart = false;
-
-document.onkeyup = function(event) {
-  if (userStart) {
-    //Runs the game logic once the game has been started
+var wins;
+var lettersGuessed = [];
+;
+ document.onkeyup = function(event) {
+        
+  if (userStart) {//Runs the game logic once the game has been started
     function checkUserInput() {
       userInput = event.key.toLowerCase();
       var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-      var lettersGuessed = [];
+      
       var checkValidity = alphabet.indexOf(userInput);
-      var checkFrequency = lettersGuessed.indexOf(userInput);
-      var replaceLetter = [];
-
-      if (checkValidity == -1) {
-        //Makes sure user presses valid letter for guess
-        document.querySelector("#userInput").innerHTML =
-          "Please guess a letter.";
-      } else if (guessesRemaining > 0) {
-        //Checks if letter guessed is in the word in play and pushes user input to array of letters already guessed
+    //   var checkFrequency = lettersGuessed.indexOf(userInput);
+      if (checkValidity == -1) {//Makes sure user presses valid letter for guess
+        document.querySelector("#userInput").innerHTML="Please guess a letter.";
+      } else if (guessesRemaining > 0) { //Checks if letter guessed is in the word in play and pushes user input to array of letters already guessed
         guessesRemaining--;
-        document.querySelector(
-          "#guessesRemaining"
-        ).innerHTML = guessesRemaining;
+        document.querySelector("#guessesRemaining").innerHTML = guessesRemaining;
         lettersGuessed.push(userInput);
         console.log(lettersGuessed);
         var checkLetter = guessWord.word.indexOf(userInput);
-        //Displays letters already guessed in the "Letters Already Guessed" section in the document.
-
-        if (checkLetter > -1) {
-          document.querySelector("#userInput").innerHTML =
-            "Great! That letter is in the word!";
-
-          for (i = 0; i < guessWord.word.length; i++) {
-            if (guessWord.word[i] === userInput) {
-              replaceLetter.push(userInput);
-            } else {
-              replaceLetter.push("_");
+        document.querySelector("#lettersGuessed").innerHTML = lettersGuessed.join(" ");
+         if (checkLetter > -1) { //Displays letters already guessed in the "Letters Already Guessed" section in the document and replaces correct letters guessed in correct spaces on the word.   
+        for (var i = 0; i < guessWord.word.length; i++){ 
+            if (guessWord.word[i] === userInput) {          
+            spaces[i]=userInput;
             }
+        document.querySelector("#word").innerHTML=spaces.join(" ");
+        document.querySelector("#userInput").innerHTML="Great! That letter is in the word!";
           }
-          document.querySelector(
-            "#lettersGuessed"
-          ).innerHTML = lettersGuessed.join(" ");
-
-          document.querySelector("#word").innerHTML = replaceLetter.join(" ");
+         
         } else {
-          document.querySelector("#userInput").innerHTML =
-            "Sorry, guess again!";
+          document.querySelector("#userInput").innerHTML="Sorry, guess again!";
         }
-      } else {
-        //GAME OVER message once user exhausts all guesses without solving the word.
-        document.querySelector("#userInput").innerHTML =
-          "GAME OVER." + "<br>" + "Press any key to restart!";
-        //This part of the program resets the game to the initial state
+      } else {//GAME OVER message once user exhausts all guesses without solving the word. Resets the game to the initial state
+        document.querySelector("#userInput").innerHTML="GAME OVER." + "<br>" + "Press any key to restart!";
         guessesRemaining = 9;
-        document.querySelector(
-          "#guessesRemaining"
-        ).innerHTML = guessesRemaining;
+        document.querySelector("#guessesRemaining").innerHTML=guessesRemaining;
         userStart = false;
         lettersGuessed = [];
       }
     }
-
     checkUserInput();
-  } else {
-    //Starts the game when user presses any key. Displays blank spaces after generating word in play.
+  } else {//Starts the game when user presses any key. Displays blank spaces after generating word in play.
     userStart = true;
     document.querySelector("#userInput").innerHTML = "You've started the game!";
     guessWord = words[Math.floor(Math.random() * words.length)];
     //write code here that also generates the matching picture and phrase for the chosen word in case the user wins
     console.log(guessWord);
-    //remove this console log when program is completed. only using this for testing.
-    var blank = "";
+    //remove this console log when program is completed. only using this for testing.   
     for (var i = 0; i < guessWord.word.length; i++) {
-      blank = blank + "_ ";
+      spaces[i]="_";
     }
-    document.querySelector("#word").innerHTML = blank;
+    document.querySelector("#word").innerHTML = spaces.join(" ");
   }
 };
