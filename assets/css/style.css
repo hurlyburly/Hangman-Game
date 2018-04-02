@@ -1,7 +1,27 @@
+body{
+    background-color:#edc1c0;
+}
 .mainbg{
-    background-image: url(../images/background.jpg);
+    background-image: url(../images/pink_rice.png);
 }
 
 h2{
     color:#fff;
+}
+#phrases{
+    width:100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding:5%;
+}
+
+.jumbotron,.card-header,.card-body,#phrases{
+    background-color: #D09595;
+    color:#fff;
+    font-family:'Lobster Two', cursive;   
+}  
+.img-fluid{
+    margin:5%;
+    border:solid 5px;
+    border-color:#d09595;
 }

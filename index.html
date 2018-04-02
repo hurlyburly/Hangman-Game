@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
  
     <title>Document</title>
 </head>
@@ -25,9 +26,9 @@
     <header>
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4">HANGMAN</h1>
+                <h1 class="display-4">H-A-N-G-M-A-N</h1>
                 <!-- incorporate some sort of css animation to make game feel more interactive and snazzy -->
-                <p class="lead">Let's Play Hangman!</p>
+                <p class="lead">LET'S PLAY!</p>
             </div>
         </div>
     </header>
@@ -37,19 +38,20 @@
                  <!-- h2 Array of phrases that pop up in response to correct answer for hangman -->
                 <h2 id="phrases">Something related to the answer</h2>
             </div>
-            <div class="col-md-8" id="winningPic winningMusic">
+            <div class="col-md-6" id="winningPic winningMusic">
                 <!-- Array of images that pop up in response to correct answer for hangman -->
                     <img src="http://via.placeholder.com/200x200" class="img-fluid" alt="Responsive image">
+                    <audio id="barking" src="assets/javascript/dogbarking.mp3"></audio>
                     
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                     <div class="card-header" id="userInput">Press any key to start!</div>
                 </div>
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                        <!--Count and display amount of words guessed correctly here  -->
-                    <div class="card-header">Wins:</div>
-                        <div class="card-body">
+                    <div class="card-header">Total Wins:</div>
+                        <div class="card-body"id="wins">
                                 <p class="card-text">#  </p> 
                             </div>
                     </div>
@@ -77,8 +79,7 @@
                 </div>
             </div>
         </div>
-     <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by Isidoro151 - Freepik.com</a></div>  
-    
+  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
