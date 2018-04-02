@@ -103,7 +103,7 @@ function winGame() {
   document.querySelector("#wins").innerHTML = wins;
 //   document.getElementById("#barking").play();
   document.querySelector("#phrases").innerHTML = "<p>"+guessWord.phrases+"</p>";
-   document.querySelector("#winningImage").innerHTML ="<img src=\"" + guessWord.images+">";
+  //  document.querySelector("#winningImage").innerHTML ="<img src=\"" + guessWord.images+">";
 }
 function endGame() {
 //This function ends the game
