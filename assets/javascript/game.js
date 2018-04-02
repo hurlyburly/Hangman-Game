@@ -96,8 +96,8 @@ function winGame() {
   document.querySelector("#userInput").innerHTML = "You Win!";
   document.querySelector("#wins").innerHTML = wins;
 //   document.getElementById("#barking").play();
-//   document.querySelector("#phrases").innerHTML = guessWord.phrases;
-//   document.querySelector("#winningImage").innerHTML = guessWord.images;
+  document.querySelector("#phrases").innerHTML = "<p>"+guessWord.phrases+"</p>";
+   document.querySelector("#winningImage").innerHTML ="<img src=\"" + guessWord.images+">";
 }
 function endGame() {
   document.querySelector("#userInput").innerHTML =
