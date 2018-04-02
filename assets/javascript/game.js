@@ -1,5 +1,5 @@
-//         1. Array of phrases that pop up in response to correct answer for hangman
-//         2. Array of images that pop up in response to correct answer for hangman
+//         1. COMPLETE:Array of phrases that pop up in response to correct answer for hangman
+//         2. COMPLETE:Array of images that pop up in response to correct answer for hangman
 //         3. COMPLETE:Populate new word for the game and hide it from user.
 //         4. COMPLETE:Display correct amount of spaces for the next word in the array.
 //         5. COMPLETE:Display correct letters in spaces for each word as correct letters are guessed.
@@ -8,6 +8,7 @@
 //         8. COMPLETE Display letters already guessed in the current round.
 //         9. COMPLETE Don't display guesses already made more than once.
 //         10.COMPLETE Reset the game once guesses remaining drops to zero.
+//         11.COMPLETE Count up wins when game is solved properly.
 var words = [
   {
     word: "corgi",
@@ -53,7 +54,6 @@ var userInput;
 var userStart = false;
 var wins = 0;
 var lettersGuessed = [];
-var checkLetter;
 
 function resetGame() {
   guessesRemaining = 9;
@@ -72,6 +72,7 @@ function inputGuess() {
   document.querySelector("#lettersGuessed").innerHTML = lettersGuessed.join(
     " "
   );
+  console.log(lettersGuessed);
 }
 function wrongGuess() {
   document.querySelector("#userInput").innerHTML = "Sorry, guess again!";
@@ -90,11 +91,13 @@ function startGame() {
   }
   document.querySelector("#word").innerHTML = spaces.join(" ");
 }
-function winGame(){
-    wins++;
-    document.querySelector("#userInput").innerHTML = "You Win!";
-    document.querySelector("#wins").innerHTML = wins;
-    document.getElementById("#barking").play();
+function winGame() {
+  wins++;
+  document.querySelector("#userInput").innerHTML = "You Win!";
+  document.querySelector("#wins").innerHTML = wins;
+  document.getElementById("#barking").play();
+  document.querySelector("#phrases").innerHTML = guessWord.phrases;
+  document.querySelector("#winningImage").innerHTML = guessWord.images;
 }
 function endGame() {
   document.querySelector("#userInput").innerHTML =
@@ -102,6 +105,7 @@ function endGame() {
 }
 
 document.onkeyup = function(event) {
+    
   if (userStart) {
     //Runs the game logic once the game has been started
     function checkUserInput() {
@@ -109,53 +113,45 @@ document.onkeyup = function(event) {
       var alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
       var checkValidity = alphabet.indexOf(userInput);
       var checkRepeat = lettersGuessed.indexOf(userInput);
-      checkLetter = guessWord.word.indexOf(userInput);
+      var checkLetter = guessWord.word.indexOf(userInput);
       if (checkValidity == -1) {
         //Makes sure user presses valid letter for guess
         document.querySelector("#userInput").innerHTML =
           "Please guess a letter.";
       } else {
-        if (checkLetter > -1) {
+        if (guessesRemaining < 1) {
+          //GAME OVER message once user exhausts all guesses without solving the word. Resets the game to the initial state
+          endGame();
+          resetGame();
         } else {
-          wrongGuess();
-          if (guessesRemaining < 1) {
-            //GAME OVER message once user exhausts all guesses without solving the word. Resets the game to the initial state
-            endGame();
-            resetGame();
-          } else {
-            if (checkRepeat > -1) {
-              for (var i = 0; i < guessWord.word.length; i++) {
-                if (guessWord.word[i] === userInput) {
-                  spaces[i] = userInput;
-                  spacesRemaining--;
-                  console.log(spaces.length + spacesRemaining);
-                  document.querySelector("#word").innerHTML = spaces.join(" ");
-                  document.querySelector("#userInput").innerHTML =
-                    "Great! That letter is in the word!";
-                  inputGuess();
-                } else if (spaces.length + spacesRemaining < 1) {
-                  winGame();
-                  resetGame();
-                } else {
-                  document.querySelector("#userInput").innerHTML =
-                    "You have already guessed this letter. Please try another.";
-                }
+          if (checkRepeat == -1) {
+            for (var i = 0; i < guessWord.word.length; i++) {
+              if (guessWord.word[i] === userInput) {
+                spaces[i] = userInput;
+                spacesRemaining--;
+                document.querySelector("#word").innerHTML = spaces.join(" ");
+                document.querySelector("#userInput").innerHTML =
+                  "Great! That letter is in the word!";
+                inputGuess();
+              } else if (spaces.length + spacesRemaining < 1) {
+                winGame();
+                resetGame();
+              } else {
+                document.querySelector("#userInput").innerHTML =
+                  "You have already guessed this letter. Please try another.";
               }
             }
+          }
+          if (checkLetter > -1) {
+            wrongGuess();
+          } else {
           }
         }
       }
     }
     checkUserInput();
+    console.log(userInput);
   } else {
     startGame();
-    // userStart = true;
-    // document.querySelector("#userInput").innerHTML = "You've started the game!";
-    // guessWord = words[Math.floor(Math.random() * words.length)];
-    // console.log(guessWord);
-    // for (var i = 0; i < guessWord.word.length; i++) {
-    //   spaces[i] = "_";
-    // }
-    // document.querySelector("#word").innerHTML = spaces.join(" ");
   }
 };
