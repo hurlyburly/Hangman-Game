@@ -9,6 +9,8 @@
 //         9. COMPLETE Don't display guesses already made more than once.
 //         10.COMPLETE Reset the game once guesses remaining drops to zero.
 //         11.COMPLETE Count up wins when game is solved properly.
+
+//Global array of words, phrases, and images that will load randomly for users to try and guess
 var words = [
   {
     word: "corgi",
@@ -46,6 +48,7 @@ var words = [
     images: "assets/images/labrador.jpeg"
   }
 ];
+//global variables
 var guessWord;
 var spaces = [];
 var spacesRemaining = spaces.length;
@@ -56,6 +59,7 @@ var wins = 0;
 var lettersGuessed = [];
 
 function resetGame() {
+//this function resets all game variables to initial values except for wins
   guessesRemaining = 9;
   document.querySelector("#guessesRemaining").innerHTML = guessesRemaining;
   userStart = false;
@@ -66,6 +70,7 @@ function resetGame() {
   );
 }
 function inputGuess() {
+//this function pushes the user input to the necessary arrays and pushes the guesses onto the screen
   guessesRemaining--;
   document.querySelector("#guessesRemaining").innerHTML = guessesRemaining;
   lettersGuessed.push(userInput);
@@ -73,14 +78,15 @@ function inputGuess() {
   document.querySelector("#lettersGuessed").innerHTML = lettersGuessed.join(
     " "
   );
-  console.log(lettersGuessed);
 }
 function wrongGuess() {
+//lets the user know they guessed incorrectly
   document.querySelector("#userInput").innerHTML = "Sorry, guess again!";
   document.querySelector("#guessesRemaining").innerHTML = guessesRemaining;
 }
 
 function startGame() {
+//starts the game 
   guessesRemaining = 9;
   userStart = true;
   document.querySelector("#userInput").innerHTML = "You've started the game!";
@@ -100,6 +106,7 @@ function winGame() {
    document.querySelector("#winningImage").innerHTML ="<img src=\"" + guessWord.images+">";
 }
 function endGame() {
+//This function ends the game
   document.querySelector("#userInput").innerHTML =
     "GAME OVER." + "<br>" + "Press any key to restart!";
 }
@@ -115,7 +122,7 @@ document.onkeyup = function(event) {
       var checkRepeat = lettersGuessed.indexOf(userInput);
       var checkLetter = guessWord.word.indexOf(userInput);
       if (checkValidity == -1) {
-        //Makes sure user presses valid letter for guess
+        //Makes sure user selects valid key for guess
         document.querySelector("#userInput").innerHTML =
           "Please guess a letter.";
       } else {
@@ -125,6 +132,7 @@ document.onkeyup = function(event) {
           resetGame();
         } else {
           if (checkRepeat == -1) {
+              //If the userInput has not already been keyed previously for the word then this portion of the program will update the word and various cards.
               inputGuess(); 
             for (var i = 0; i < guessWord.word.length; i++) {
               if (guessWord.word[i] === userInput) {
@@ -139,6 +147,7 @@ document.onkeyup = function(event) {
                 resetGame();
               } 
           }else {
+            //If the userInput was already keyed for the word this will alert the user to try another letter and will not countdown the remaining guesses
             document.querySelector("#userInput").innerHTML =
               "You have already guessed this letter. Please try another.";
           }
@@ -149,8 +158,8 @@ document.onkeyup = function(event) {
       }
     }
     checkUserInput();
-    console.log(userInput);
   } else {
+    //If the conditions for the game start have not been met this will start the game. 
     startGame();
   }
 };
