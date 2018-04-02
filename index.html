@@ -9,7 +9,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet">
- 
+
     <title>Document</title>
 </head>
 
@@ -35,41 +35,41 @@
     <div class="container mainbg" id="start">
         <div class="row">
             <div class="col-md-12">
-                 <!-- h2 Array of phrases that pop up in response to correct answer for hangman -->
+                <!-- h2 Array of phrases that pop up in response to correct answer for hangman -->
                 <h2 id="phrases">Something related to the answer</h2>
             </div>
-            <div class="col-md-6" id="winningPic winningMusic">
+            <div class="col-md-6" id="winningPic">
                 <!-- Array of images that pop up in response to correct answer for hangman -->
-                    <img src="http://via.placeholder.com/200x200" class="img-fluid" alt="Responsive image">
-                    <audio id="barking" src="assets/javascript/dogbarking.mp3"></audio>
-                    
+                <img src="http://via.placeholder.com/200x200" class="img-fluid" alt="Responsive image">
+                <audio id="barking" src="assets/javascript/dogbarking.mp3"></audio>
+
             </div>
             <div class="col-md-6">
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                     <div class="card-header" id="userInput">Press any key to start!</div>
                 </div>
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-                       <!--Count and display amount of words guessed correctly here  -->
+                    <!--Count and display amount of words guessed correctly here  -->
                     <div class="card-header">Total Wins:</div>
-                        <div class="card-body"id="wins">
-                                <p class="card-text">#  </p> 
-                            </div>
+                    <div class="card-body" id="wins">
+                        <p class="card-text"># </p>
                     </div>
+                </div>
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                     <!-- Populate new word for the game and hide it from user -->
                     <div class="card-header">Current Word:</div>
                     <div class="card-body" id="word">
-                    <!-- Display correct amount of spaces for the next word in the array. Display correct letters in spaces for each word as correct letters are guessed.-->
+                        <!-- Display correct amount of spaces for the next word in the array. Display correct letters in spaces for each word as correct letters are guessed.-->
                         <p class="card-text">_ _ _ _ _ _</p>
                     </div>
                 </div>
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                     <!-- Countdown number of guesses made remaining from set number of guesses before game over. Don't count down on guesses for the same letter already made in the round.  -->
-                        <div class="card-header">Number of Guesses Remaining:</div>
-                        <div class="card-body">
-                                <p class="card-text" id="guessesRemaining">9</p>
-                            </div>
+                    <div class="card-header">Number of Guesses Remaining:</div>
+                    <div class="card-body">
+                        <p class="card-text" id="guessesRemaining">9</p>
                     </div>
+                </div>
                 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
                     <!-- Display letters already guessed in the current round. Don't display guesses already made. -->
                     <div class="card-header">Letters already guessed:</div>
@@ -79,14 +79,14 @@
                 </div>
             </div>
         </div>
-  
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 
 </html>

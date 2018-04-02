@@ -60,6 +60,7 @@ function resetGame() {
   document.querySelector("#guessesRemaining").innerHTML = guessesRemaining;
   userStart = false;
   lettersGuessed = [];
+  spaces=[];
   document.querySelector("#lettersGuessed").innerHTML = lettersGuessed.join(
     " "
   );
