@@ -5,47 +5,48 @@
 //         5. COMPLETE:Display correct letters in spaces for each word as correct letters are guessed.
 //         6. COMPLETE:Countdown number of guesses made remaining from set number of guesses before game over.
 //         7. COMPLETE:Don't count down on guesses for the same letter already made in the round.
-//         8. COMPLETE Display letters already guessed in the current round.
-//         9. COMPLETE Don't display guesses already made more than once.
-//         10.COMPLETE Reset the game once guesses remaining drops to zero.
-//         11.COMPLETE Count up wins when game is solved properly.
+//         8. COMPLETE:Display letters already guessed in the current round.
+//         9. COMPLETE:Don't display guesses already made more than once.
+//         10.COMPLETE:Reset the game once guesses remaining drops to zero.
+//         11.COMPLETE:Count up wins when game is solved properly.
 
 //Global array of words, phrases, and images that will load randomly for users to try and guess
+//remove assets in the words.images 
 var words = [
   {
     word: "corgi",
     phrases: "Corgis are Cute!",
-    images: "assets/images/corgi.jpeg"
+    images: "../images/corgi.png"
   },
   {
     word: "terrier",
     phrases: "Terriers are terrific!",
-    images: "assets/images/terrier.jpeg"
+    images: "../images/terrier.png"
   },
   {
     word: "pug",
     phrases: "Pugs are pugnacious!",
-    images: "assets/images/pug.jpeg"
+    images: "../images/pug.png"
   },
   {
     word: "dalmatian",
     phrases: "Dalmations are dolls!",
-    images: "assets/images/dalmatians.jpeg"
+    images: "../images/dalmatians.png"
   },
   {
     word: "dachshund",
     phrases: "Dachshunds are delightful!",
-    images: "assets/images/dachschund.jpeg"
+    images: "../images/dachschund.png"
   },
   {
     word: "beagle",
     phrases: "Beagles are beautiful!",
-    images: "assets/images/beagle.jpeg"
+    images: "../images/beagle.png"
   },
   {
     word: "labrador",
     phrases: "Labradors are lovable!",
-    images: "assets/images/labrador.jpeg"
+    images: "../images/labrador.png"
   }
 ];
 //global variables
@@ -101,9 +102,10 @@ function winGame() {
   wins++;
   document.querySelector("#userInput").innerHTML = "You Win!";
   document.querySelector("#wins").innerHTML = wins;
-//   document.getElementById("#barking").play();
+  // document.querySelector("#barking").play();
   document.querySelector("#phrases").innerHTML = "<p>"+guessWord.phrases+"</p>";
-  //  document.querySelector("#winningImage").innerHTML ="<img src=\"" + guessWord.images+">";
+  document.querySelector("#winningPic").src=guessWord.images;
+  //attr in jquery and set attribute method on the src
 }
 function endGame() {
 //This function ends the game
